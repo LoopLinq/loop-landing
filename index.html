@@ -12,12 +12,12 @@
         :root {
             --orange: #FF5D02;
             --walnut: #5F2606;
-            --cream: #FFF8F2;
-            --warm-white: #FFFDF9;
+            --cream: #ffffff;
+            --warm-white: #ffffff;
             --dark: #1A0E04;
-            --muted: #9B8A7A;
-            --light-tan: #F5EDE4;
-            --glow: rgba(255, 93, 2, 0.15);
+            --muted: #8C8C8C;
+            --light-tan: #EAEAEA;
+            --glow: transparent;
         }
 
         * {
@@ -56,7 +56,7 @@
         nav.scrolled {
             background: rgba(255, 253, 249, 0.95);
             backdrop-filter: blur(20px);
-            box-shadow: 0 1px 0 rgba(95, 38, 6, 0.06);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
         }
 
         .logo {
@@ -123,16 +123,7 @@
         }
 
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(ellipse at 80% 30%, rgba(255, 93, 2, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 20% 80%, rgba(95, 38, 6, 0.03) 0%, transparent 50%);
-            pointer-events: none;
+            content: none;
         }
 
         .hero::after {
@@ -449,7 +440,7 @@
         }
 
         .float-badge.downloads .badge-icon {
-            background: rgba(95, 38, 6, 0.08);
+            background: rgba(0, 0, 0, 0.05);
         }
 
         @keyframes floatBadge {
@@ -593,8 +584,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 20% 50%, rgba(255, 93, 2, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(95, 38, 6, 0.1) 0%, transparent 50%);
+
+                none;
             pointer-events: none;
         }
 
@@ -629,6 +620,21 @@
             line-height: 1.7;
         }
 
+        .problem-opener h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            line-height: 1.3;
+            max-width: 650px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        .problem-opener h3 em {
+            color: var(--orange);
+            font-style: italic;
+        }
+
         /* ─── PAIN POINTS ─── */
         .pain-card {
             display: grid;
@@ -654,6 +660,15 @@
             color: var(--light-tan);
             line-height: 1;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+
+        .pain-label {
+            font-family: 'DM Serif Display', serif;
+            font-size: 4rem;
+            color: var(--light-tan);
         }
 
         .pain-text .pain-quote {
@@ -692,7 +707,7 @@
             border-radius: 24px;
             overflow: hidden;
             aspect-ratio: 4/3;
-            background: var(--light-tan);
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -742,7 +757,7 @@
         .mock-linkinbio.beautiful {
             background: linear-gradient(135deg, var(--cream), white);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(95, 38, 6, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
             padding: 2.5rem 2rem;
         }
 
@@ -767,6 +782,326 @@
 
         .mock-linkinbio.beautiful .mock-link:nth-child(odd) {
             background: var(--orange);
+        }
+
+        /* ─── SIDE-BY-SIDE COMPARISON ─── */
+        .comparison-visual {
+            aspect-ratio: auto !important;
+            overflow: visible !important;
+            background: transparent !important;
+            padding: 1rem 0 !important;
+            border-radius: 0 !important;
+        }
+
+        .compare-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            width: 100%;
+        }
+
+        .compare-side {
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .compare-label {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.8rem;
+            border-radius: 100px;
+            white-space: nowrap;
+            z-index: 5;
+        }
+
+        .compare-label-before {
+            background: #333;
+            color: white;
+        }
+
+        .compare-label-after {
+            background: var(--orange);
+            color: white;
+        }
+
+        .compare-arrow {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+        }
+
+        /* Phone frames for comparison */
+        .compare-phone {
+            width: 220px;
+            height: 460px;
+            background: #1a1a1a;
+            border-radius: 32px;
+            padding: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            position: relative;
+        }
+
+        .compare-phone .cp-notch {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 20px;
+            background: #1a1a1a;
+            border-radius: 0 0 14px 14px;
+            z-index: 3;
+        }
+
+        .compare-phone .cp-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 26px;
+            overflow: hidden;
+            background: white;
+        }
+
+        /* ─── LINKTREE INSIDE PHONE ─── */
+        .lt-screen {
+            padding: 2rem 0.7rem 0.7rem;
+            background: #f5f5f5;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .lt-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E8A0C0, #A0C8E8);
+            margin-bottom: 0.35rem;
+            border: 2px solid #E8A0C0;
+        }
+
+        .lt-name {
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: #1a1a1a;
+            margin-bottom: 0.7rem;
+        }
+
+        .lt-link {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            padding: 0.45rem 0.55rem;
+            margin-bottom: 0.3rem;
+            border: 1px solid #e8e8e8;
+            gap: 0.5rem;
+        }
+
+        .lt-thumb {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .lt-link span {
+            font-size: 0.58rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            flex: 1;
+            text-align: center;
+        }
+
+        .lt-dots {
+            color: #ccc;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .lt-footer {
+            margin-top: auto;
+            padding: 0.4rem 0.8rem;
+            border-radius: 100px;
+            border: 1px solid #ddd;
+            font-size: 0.5rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+        }
+
+        /* ─── LOOPLINQ INSIDE PHONE ─── */
+        .lq-screen {
+            background: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .lq-cover {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #D4A0D0, #8BC49A);
+            flex-shrink: 0;
+        }
+
+        .lq-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E8A0C0, #8BC49A);
+            border: 2px solid white;
+            margin-top: -20px;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .lq-name {
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: #1a1a1a;
+            margin-top: 0.2rem;
+        }
+
+        .lq-bio {
+            font-size: 0.5rem;
+            color: #888;
+        }
+
+        .lq-location {
+            font-size: 0.45rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+        }
+
+        .lq-socials {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .lq-social {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.4rem;
+            font-weight: 700;
+            color: #555;
+        }
+
+        .lq-body {
+            width: 100%;
+            padding: 0 0.7rem 0.7rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .lq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.35rem;
+            width: 100%;
+        }
+
+        .lq-card {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 0.45rem;
+            border: 1px solid #eee;
+        }
+
+        .lq-card-img {
+            width: 100%;
+            height: 40px;
+            border-radius: 6px;
+            margin-bottom: 0.2rem;
+        }
+
+        .lq-card-domain {
+            font-size: 0.4rem;
+            color: #aaa;
+        }
+
+        .lq-card-title {
+            font-weight: 700;
+            font-size: 0.5rem;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .lq-card-desc {
+            font-size: 0.42rem;
+            color: #888;
+            line-height: 1.3;
+        }
+
+        .lq-feature-card {
+            display: flex;
+            gap: 0.45rem;
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 0.45rem;
+            width: 100%;
+            border: 1px solid #eee;
+        }
+
+        .lq-fc-img {
+            width: 55px;
+            height: 48px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .lq-fc-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .lq-yt-card {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: #FDE8E8;
+            border-radius: 10px;
+            padding: 0.45rem 0.6rem;
+            width: 100%;
+        }
+
+        .lq-yt-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #FF0000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.5rem;
+            flex-shrink: 0;
         }
 
         /* VS divider */
@@ -987,25 +1322,19 @@
         .story-beat {
             text-align: center;
             padding: 6rem 2rem;
-            background: var(--cream);
+            background: var(--dark);
             position: relative;
+            overflow: hidden;
         }
 
         .story-beat::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, transparent, var(--orange));
+            content: none;
         }
 
         .story-beat h2 {
             font-family: 'DM Serif Display', serif;
             font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            color: var(--walnut);
+            color: white;
             max-width: 600px;
             margin: 0 auto 1rem;
             line-height: 1.2;
@@ -1017,11 +1346,229 @@
         }
 
         .story-beat p {
-            color: var(--muted);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto;
+            max-width: 550px;
+            margin: 0 auto 3rem;
             line-height: 1.7;
+        }
+
+        .story-beat p em {
+            color: var(--orange);
+            font-style: italic;
+        }
+
+        /* Monitor frame */
+        .monitor-frame {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .monitor-bezel {
+            background: #2a2a2a;
+            border-radius: 12px 12px 0 0;
+            padding: 8px 8px 0;
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .monitor-dots {
+            display: flex;
+            gap: 5px;
+            padding: 6px 8px;
+        }
+
+        .monitor-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #555;
+        }
+
+        .monitor-screen {
+            background: white;
+            border-radius: 2px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .monitor-stand {
+            width: 120px;
+            height: 20px;
+            background: #2a2a2a;
+            margin: 0 auto;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .monitor-base {
+            width: 180px;
+            height: 6px;
+            background: #333;
+            margin: 0 auto;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Web mockup inside monitor */
+        .web-mockup {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: 100%;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .wm-sidebar {
+            background: #fafafa;
+            padding: 1rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 1px solid #eee;
+        }
+
+        .wm-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E8A0C0, #A0C8E8);
+            margin-bottom: 0.4rem;
+        }
+
+        .wm-name {
+            font-weight: 700;
+            font-size: 0.65rem;
+            color: #1a1a1a;
+            margin-bottom: 0.1rem;
+        }
+
+        .wm-bio {
+            font-size: 0.45rem;
+            color: #888;
+            margin-bottom: 0.05rem;
+        }
+
+        .wm-location {
+            font-size: 0.4rem;
+            color: #aaa;
+            margin-bottom: 0.4rem;
+        }
+
+        .wm-socials {
+            display: flex;
+            gap: 0.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wm-socials span {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.4rem;
+            color: #555;
+        }
+
+        .wm-content {
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            overflow: hidden;
+        }
+
+        .wm-top-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .wm-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .wm-card-img {
+            width: 60px;
+            height: 50px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .wm-card-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .wm-card-domain {
+            font-size: 0.35rem;
+            color: #aaa;
+        }
+
+        .wm-card-title {
+            font-size: 0.45rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .wm-card-desc {
+            font-size: 0.35rem;
+            color: #888;
+            line-height: 1.3;
+        }
+
+        .wm-feature-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .wm-feature-img {
+            width: 120px;
+            height: 70px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .wm-feature-text {
+            flex: 1;
+        }
+
+        .wm-bottom-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .wm-social-card {
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 55px;
+        }
+
+        .wm-social-card .wm-sc-icon {
+            font-size: 0.7rem;
+        }
+
+        .wm-social-card .wm-sc-name {
+            font-size: 0.45rem;
+            font-weight: 700;
+        }
+
+        .wm-social-card .wm-sc-handle {
+            font-size: 0.35rem;
+            opacity: 0.7;
         }
 
         /* ─── PRICING SIMPLE ─── */
@@ -1050,8 +1597,8 @@
             background: white;
             border-radius: 24px;
             padding: 3rem 2.5rem;
-            box-shadow: 0 20px 60px rgba(95, 38, 6, 0.08);
-            border: 1px solid rgba(95, 38, 6, 0.06);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             position: relative;
             overflow: hidden;
         }
@@ -1097,6 +1644,82 @@
             font-weight: 600;
             font-size: 0.95rem;
             margin-bottom: 2rem;
+        }
+
+        .price-tagline em {
+            font-style: italic;
+            text-decoration: underline;
+            text-decoration-color: var(--orange);
+            text-underline-offset: 3px;
+        }
+
+        .price-annual-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.3rem;
+            min-height: 1.2em;
+        }
+
+        /* Pricing toggle */
+        .pricing-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-label.active {
+            color: var(--walnut);
+            font-weight: 700;
+        }
+
+        .toggle-save {
+            font-size: 0.65rem;
+            background: rgba(255, 93, 2, 0.1);
+            color: var(--orange);
+            padding: 0.15rem 0.5rem;
+            border-radius: 100px;
+            font-weight: 700;
+            margin-left: 0.25rem;
+        }
+
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background: #ddd;
+            border-radius: 12px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-switch.annual {
+            background: var(--orange);
+        }
+
+        .toggle-knob {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .toggle-switch.annual .toggle-knob {
+            transform: translateX(20px);
         }
 
         .price-features {
@@ -1148,8 +1771,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 30% 0%, rgba(255, 93, 2, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 100%, rgba(255, 93, 2, 0.1) 0%, transparent 50%);
+
+                none;
             pointer-events: none;
         }
 
@@ -1254,8 +1877,8 @@
             background: white;
             border-radius: 100px;
             padding: 0.35rem;
-            box-shadow: 0 10px 40px rgba(95, 38, 6, 0.08);
-            border: 1px solid rgba(95, 38, 6, 0.06);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
         .claim-input-group input {
@@ -1545,6 +2168,405 @@
             color: var(--orange);
         }
 
+        /* ─── CAROUSEL ─── */
+        .carousel-visual {
+            aspect-ratio: auto !important;
+            overflow: visible !important;
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        .carousel-wrapper {
+            width: 100%;
+        }
+
+        .carousel-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        .carousel-tab {
+            padding: 0.45rem 1.2rem;
+            border-radius: 100px;
+            border: 1px solid #ddd;
+            background: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-tab.active {
+            background: var(--walnut);
+            color: white;
+            border-color: var(--walnut);
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            min-height: 380px;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            animation: fadeSlide 0.4s ease;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--orange);
+            width: 20px;
+            border-radius: 4px;
+        }
+
+        /* ─── MEDIA KIT CARD ─── */
+        .mk-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eee;
+        }
+
+        .mk-header {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 1rem;
+        }
+
+        .mk-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            flex-shrink: 0;
+        }
+
+        .mk-info {
+            flex: 1;
+        }
+
+        .mk-name {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .mk-handle {
+            font-size: 0.55rem;
+            color: #888;
+        }
+
+        .mk-contact {
+            padding: 0.35rem 0.8rem;
+            background: #6C63FF;
+            color: white;
+            border-radius: 8px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .mk-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            background: #f8f8f8;
+            border-radius: 12px;
+            padding: 0.7rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .mk-stat {
+            text-align: center;
+        }
+
+        .mk-stat-icon {
+            font-size: 0.65rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .mk-stat-val {
+            font-weight: 800;
+            font-size: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        .mk-stat-label {
+            font-size: 0.45rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .mk-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .mk-section-title {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .mk-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.55rem;
+            color: #555;
+        }
+
+        .mk-bar-row span:first-child {
+            width: 45px;
+            font-weight: 500;
+        }
+
+        .mk-bar-row span:last-child {
+            width: 25px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .mk-bar {
+            flex: 1;
+            height: 6px;
+            background: #eee;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .mk-bar-fill {
+            height: 100%;
+            background: #6C63FF;
+            border-radius: 3px;
+        }
+
+        .mk-partner-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.35rem;
+        }
+
+        .mk-partner {
+            height: 28px;
+            border-radius: 6px;
+            background: #f0f0f0;
+        }
+
+        /* ─── ANALYTICS CARD ─── */
+        .an-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eee;
+        }
+
+        .an-nav {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .an-nav-item {
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: #aaa;
+            cursor: pointer;
+            padding-bottom: 0.3rem;
+        }
+
+        .an-nav-item.active {
+            color: #1a1a1a;
+            font-weight: 700;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .an-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .an-title {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .an-period {
+            font-size: 0.55rem;
+            color: #888;
+            border: 1px solid #ddd;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        .an-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.4rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .an-metric {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 0.5rem;
+        }
+
+        .an-metric-label {
+            font-size: 0.45rem;
+            color: #888;
+            margin-bottom: 0.15rem;
+        }
+
+        .an-up {
+            color: #22C55E;
+        }
+
+        .an-down {
+            color: #EF4444;
+        }
+
+        .an-metric-val {
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: #1a1a1a;
+        }
+
+        .an-chart-label {
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0.4rem;
+        }
+
+        .an-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.35rem;
+            height: 80px;
+            margin-bottom: 0.7rem;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .an-chart-group {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 100%;
+            position: relative;
+        }
+
+        .an-chart-group span {
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.4rem;
+            color: #aaa;
+        }
+
+        .an-bar {
+            flex: 1;
+            border-radius: 2px 2px 0 0;
+            min-width: 8px;
+        }
+
+        .an-top-content {
+            border-top: 1px solid #eee;
+            padding-top: 0.6rem;
+        }
+
+        .an-tc-title {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .an-tc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.4rem;
+        }
+
+        .an-tc-item {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .an-tc-thumb {
+            width: 100%;
+            height: 45px;
+            border-radius: 8px;
+            margin-bottom: 0.2rem;
+        }
+
+        .an-tc-meta {
+            font-size: 0.4rem;
+            color: #888;
+            margin-bottom: 0.1rem;
+        }
+
+        .an-tc-name {
+            font-size: 0.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
         /* ─── STOREFRONT MOCK ─── */
         .mock-storefront {
             width: 90%;
@@ -1584,7 +2606,7 @@
         }
 
         .storefront-icon.course {
-            background: rgba(95, 38, 6, 0.08);
+            background: rgba(0, 0, 0, 0.05);
         }
 
         .storefront-icon.digital {
@@ -1725,151 +2747,14 @@
     <section class="problem-opener">
         <div class="story-label">Sound familiar?</div>
         <h2>You're creating every day.<br>But your <em>income</em> doesn't reflect it.</h2>
-        <p>You post, you engage, you grind. But when someone clicks your link in bio, what do they see? A basic page
-            with generic buttons that looks like everyone else's. That's where money goes to die.</p>
+        <h2>You post, you engage, you grind. But you're still not keeping up.<br><br>That's because you're struggling
+            with <em>4 major problems.</em></h2>
     </section>
-
-    <!-- PAIN 1: Ugly Link-in-Bio -->
-    <section class="pain-card reveal">
-        <div class="pain-text">
-            <div class="pain-number">01</div>
-            <div class="pain-quote">"My link in bio looks like a parking lot for URLs."</div>
-            <p class="pain-desc">Generic templates. Tiny fonts. Zero personality. Your audience lands on your page and
-                feels nothing. In the creator economy, appearance isn't vanity — it's currency. A beautiful, on-brand
-                page keeps people scrolling, clicking, and buying.</p>
-            <div class="solution-tag">→ A link-in-bio that actually looks like you</div>
-        </div>
-        <div class="pain-visual">
-            <div class="split-visual">
-                <div class="side boring">
-                    <div class="mock-linkinbio ugly">
-                        <div class="mock-avatar"></div>
-                        <div class="mock-name">@creator</div>
-                        <div class="mock-link">My YouTube</div>
-                        <div class="mock-link">My Course</div>
-                        <div class="mock-link">Merch Store</div>
-                        <div class="mock-link">Book a Call</div>
-                    </div>
-                </div>
-                <div class="side beautiful-side">
-                    <div class="mock-linkinbio beautiful">
-                        <div class="mock-avatar"></div>
-                        <div class="mock-name">@creator</div>
-                        <div class="mock-link">Watch My Latest</div>
-                        <div class="mock-link">Creator Course — $97</div>
-                        <div class="mock-link">Book 1:1 Session</div>
-                    </div>
-                </div>
-                <div class="vs-badge">VS</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider">
-        <div class="line"></div>
-    </div>
-
-    <!-- PAIN 2: Don't Know What's Working -->
-    <section class="pain-card reversed reveal">
-        <div class="pain-text">
-            <div class="pain-number">02</div>
-            <div class="pain-quote">"I don't know what's working — or what I'm worth."</div>
-            <p class="pain-desc">You're posting into the void without real data. Which content actually drives clicks?
-                What should your rate card say when a brand DMs you? Without analytics you're guessing — and without a
-                media kit, brands are lowballing you. LoopLinq gives you a live dashboard to see exactly what's driving
-                growth, and an auto-generated media kit that proves your value so you can command bigger deals.</p>
-            <div class="solution-tag">→ Analytics dashboard + auto-generated media kit</div>
-        </div>
-        <div class="pain-visual">
-            <div class="mock-dashboard">
-                <div class="dash-header">
-                    <div class="dash-title">Creator Dashboard</div>
-                    <div class="dash-badge">Live</div>
-                </div>
-                <div class="mock-chart">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-                <div class="mock-metrics">
-                    <div class="mock-metric">
-                        <div class="val">$4.2K</div>
-                        <div class="label">This Month</div>
-                    </div>
-                    <div class="mock-metric">
-                        <div class="val">14.3K</div>
-                        <div class="label">Link Clicks</div>
-                    </div>
-                    <div class="mock-metric">
-                        <div class="val">6.8%</div>
-                        <div class="label">Conversion</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider">
-        <div class="line"></div>
-    </div>
-
-    <!-- PAIN 3: Missing Monetization -->
-    <section class="pain-card reveal">
-        <div class="pain-text">
-            <div class="pain-number">03</div>
-            <div class="pain-quote">"Other creators are making bank from coaching, courses, and downloads — and I didn't
-                even know it was that easy."</div>
-            <p class="pain-desc">You see creators half your size pulling in real revenue and wonder what you're missing.
-                The answer: they turned their knowledge into products. Coaching calls, mini-courses, templates, presets,
-                guides — all sold directly from their page. LoopLinq gives you a built-in storefront with one-tap
-                checkout, a booking calendar for paid calls, and course hosting — so you can start monetizing what you
-                already know, today.</p>
-            <div class="solution-tag">→ Sell courses, coaching calls &amp; digital products from your page</div>
-        </div>
-        <div class="pain-visual" style="background: var(--cream);">
-            <div class="mock-storefront">
-                <div class="storefront-item">
-                    <div class="storefront-icon coaching">📞</div>
-                    <div class="storefront-info">
-                        <div class="sf-name">1:1 Coaching Call</div>
-                        <div class="sf-detail">30 min · Calendar booking</div>
-                    </div>
-                    <div class="storefront-price">$150</div>
-                </div>
-                <div class="storefront-item">
-                    <div class="storefront-icon course">🎓</div>
-                    <div class="storefront-info">
-                        <div class="sf-name">Creator Growth Course</div>
-                        <div class="sf-detail">12 lessons · Self-paced</div>
-                    </div>
-                    <div class="storefront-price">$97</div>
-                </div>
-                <div class="storefront-item">
-                    <div class="storefront-icon digital">📦</div>
-                    <div class="storefront-info">
-                        <div class="sf-name">Lightroom Preset Pack</div>
-                        <div class="sf-detail">Instant download · 24 presets</div>
-                    </div>
-                    <div class="storefront-price">$29</div>
-                </div>
-                <div class="storefront-total">One-tap checkout · Built into your page · No extra tools</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider">
-        <div class="line"></div>
-    </div>
 
     <!-- PAIN 4: Paying for Too Many Tools -->
-    <section class="pain-card reversed reveal">
+    <section class="pain-card reveal">
         <div class="pain-text">
-            <div class="pain-number">04</div>
+            <div class="pain-number"><span class="pain-label">Problem</span>01</div>
             <div class="pain-quote">"I'm bleeding $100+/month on tools that don't talk to each other."</div>
             <p class="pain-desc">Link-in-bio here, scheduling tool there, payment processor somewhere else, a separate
                 media kit builder, email marketing on another tab. You're paying for six platforms when you need one.
@@ -1959,24 +2844,460 @@
         </div>
     </section>
 
+
+    <div class="section-divider">
+        <div class="line"></div>
+    </div>
+
+    <!-- PAIN 3: Missing Monetization -->
+    <section class="pain-card reversed reveal">
+        <div class="pain-text">
+            <div class="pain-number"><span class="pain-label">Problem</span>02</div>
+            <div class="pain-quote">"Other creators are making bank from coaching, courses, and downloads — and I didn't
+                even know it was that easy."</div>
+            <p class="pain-desc">You see creators half your size pulling in real revenue and wonder what you're missing.
+                The answer: they turned their knowledge into products. Coaching calls, mini-courses, templates, presets,
+                guides — all sold directly from their page. LoopLinq gives you a built-in storefront with one-tap
+                checkout, a booking calendar for paid calls, and course hosting — so you can start monetizing what you
+                already know, today.</p>
+            <div class="solution-tag">→ Sell courses, coaching calls &amp; digital products from your page</div>
+        </div>
+        <div class="pain-visual">
+            <div class="mock-storefront">
+                <div class="storefront-item">
+                    <div class="storefront-icon coaching">📞</div>
+                    <div class="storefront-info">
+                        <div class="sf-name">1:1 Coaching Call</div>
+                        <div class="sf-detail">30 min · Calendar booking</div>
+                    </div>
+                    <div class="storefront-price">$150</div>
+                </div>
+                <div class="storefront-item">
+                    <div class="storefront-icon course">🎓</div>
+                    <div class="storefront-info">
+                        <div class="sf-name">Creator Growth Course</div>
+                        <div class="sf-detail">12 lessons · Self-paced</div>
+                    </div>
+                    <div class="storefront-price">$97</div>
+                </div>
+                <div class="storefront-item">
+                    <div class="storefront-icon digital">📦</div>
+                    <div class="storefront-info">
+                        <div class="sf-name">Lightroom Preset Pack</div>
+                        <div class="sf-detail">Instant download · 24 presets</div>
+                    </div>
+                    <div class="storefront-price">$29</div>
+                </div>
+                <div class="storefront-total">One-tap checkout · Built into your page · No extra tools</div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="section-divider">
+        <div class="line"></div>
+    </div>
+
+    <!-- PAIN 1: Ugly Link-in-Bio -->
+    <section class="pain-card reveal">
+        <div class="pain-text">
+            <div class="pain-number"><span class="pain-label">Problem</span>03</div>
+            <div class="pain-quote">"My link in bio looks like a parking lot for URLs."</div>
+            <p class="pain-desc">Generic templates. Tiny fonts. Zero personality. Your audience lands on your page and
+                feels nothing. In the creator economy, appearance isn't vanity — it's currency. A beautiful, on-brand
+                page keeps people scrolling, clicking, and buying.</p>
+            <div class="solution-tag">→ A link-in-bio that actually looks like you</div>
+        </div>
+        <div class="pain-visual comparison-visual">
+            <div class="compare-container">
+                <!-- Linktree phone -->
+                <div class="compare-side">
+                    <div class="compare-label compare-label-before">Linktree</div>
+                    <div class="compare-phone">
+                        <div class="cp-notch"></div>
+                        <div class="cp-screen">
+                            <div class="lt-screen">
+                                <div class="lt-avatar"></div>
+                                <div class="lt-name">@Helenemoo</div>
+                                <div class="lt-link">
+                                    <div class="lt-thumb" style="background:#F8C8D8;"></div><span>Moo Knit
+                                        🧶</span><span class="lt-dots">⋮</span>
+                                </div>
+                                <div class="lt-link">
+                                    <div class="lt-thumb" style="background:#8BC49A;"></div><span>Norway
+                                        Retreats</span><span class="lt-dots">⋮</span>
+                                </div>
+                                <div class="lt-link">
+                                    <div class="lt-thumb" style="background:#E8A0C0;"></div><span>Knitting
+                                        patterns</span><span class="lt-dots">⋮</span>
+                                </div>
+                                <div class="lt-link">
+                                    <div class="lt-thumb" style="background:#C06090;"></div><span>Winter Guide
+                                        ❄️</span><span class="lt-dots">⋮</span>
+                                </div>
+                                <div class="lt-link">
+                                    <div class="lt-thumb" style="background:#7BAFD4;"></div><span>Norway Maps
+                                        🗺️</span><span class="lt-dots">⋮</span>
+                                </div>
+                                <div class="lt-link">
+                                    <div class="lt-thumb" style="background:#B8A0D0;"></div><span>YouTube 📹</span><span
+                                        class="lt-dots">⋮</span>
+                                </div>
+                                <div class="lt-footer">Join Helenemoo on Linktree</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Arrow -->
+                <div class="compare-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="var(--orange)" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <!-- LoopLinq phone -->
+                <div class="compare-side">
+                    <div class="compare-label compare-label-after">LoopLinq</div>
+                    <div class="compare-phone">
+                        <div class="cp-notch"></div>
+                        <div class="cp-screen">
+                            <div class="lq-screen">
+                                <div class="lq-cover"></div>
+                                <div class="lq-avatar"></div>
+                                <div class="lq-name">Helen M</div>
+                                <div class="lq-bio">Norway Soft Adventurer</div>
+                                <div class="lq-location">Bergen, Norway</div>
+                                <div class="lq-socials">
+                                    <span class="lq-social">𝕏</span>
+                                    <span class="lq-social">f</span>
+                                    <span class="lq-social">▶</span>
+                                    <span class="lq-social">in</span>
+                                </div>
+                                <div class="lq-body">
+                                    <div class="lq-grid">
+                                        <div class="lq-card">
+                                            <div class="lq-card-img" style="background: #B8E6D0;"></div>
+                                            <div class="lq-card-domain">mooknit.com</div>
+                                            <div class="lq-card-title">Moo Knit</div>
+                                        </div>
+                                        <div class="lq-card">
+                                            <div class="lq-card-img" style="background: #F8C8D8;"></div>
+                                            <div class="lq-card-domain">moocommun...</div>
+                                            <div class="lq-card-title">Moo Retreats |..</div>
+                                        </div>
+                                    </div>
+                                    <div class="lq-feature-card">
+                                        <div class="lq-fc-img"
+                                            style="background: linear-gradient(135deg, #E8A0C0, #C06090);"></div>
+                                        <div class="lq-fc-text">
+                                            <div class="lq-card-domain">helenemoo.no</div>
+                                            <div class="lq-card-title">Ultimate Norway *Winter* Guide</div>
+                                            <div class="lq-card-desc">Everything you need for the best winter
+                                                experiences</div>
+                                        </div>
+                                    </div>
+                                    <div class="lq-yt-card">
+                                        <div class="lq-yt-icon">▶</div>
+                                        <div>
+                                            <div class="lq-card-title">YouTube</div>
+                                            <div class="lq-card-desc">@helenemoo</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="section-divider">
+        <div class="line"></div>
+    </div>
+
+    <!-- PAIN 2: Don't Know What's Working -->
+    <section class="pain-card reversed reveal">
+        <div class="pain-text">
+            <div class="pain-number"><span class="pain-label">Problem</span>04</div>
+            <div class="pain-quote">"I don't know what's working — or what I'm worth."</div>
+            <p class="pain-desc">You're posting into the void without real data. Which content actually drives clicks?
+                What should your rate card say when a brand DMs you? Without analytics you're guessing — and without a
+                media kit, brands are lowballing you. LoopLinq gives you a live dashboard to see exactly what's driving
+                growth, and an auto-generated media kit that proves your value so you can command bigger deals.</p>
+            <div class="solution-tag">→ Analytics dashboard + auto-generated media kit</div>
+        </div>
+        <div class="pain-visual carousel-visual">
+            <div class="carousel-wrapper" id="carousel02">
+                <!-- Carousel tabs -->
+                <div class="carousel-tabs">
+                    <button class="carousel-tab active" data-slide="0">Media Kit</button>
+                    <button class="carousel-tab" data-slide="1">Analytics</button>
+                </div>
+                <!-- Slides -->
+                <div class="carousel-track">
+                    <!-- Slide 1: Media Kit -->
+                    <div class="carousel-slide active" data-index="0">
+                        <div class="mk-card">
+                            <div class="mk-header">
+                                <div class="mk-avatar"></div>
+                                <div class="mk-info">
+                                    <div class="mk-name">Alex Rivera</div>
+                                    <div class="mk-handle">📷 @alex_creativ · 🌐 alexrivera.co</div>
+                                </div>
+                                <div class="mk-contact">✉ Contact</div>
+                            </div>
+                            <div class="mk-stats">
+                                <div class="mk-stat">
+                                    <div class="mk-stat-icon" style="color:#E1306C;">📷</div>
+                                    <div class="mk-stat-val">124.5K</div>
+                                    <div class="mk-stat-label">IG Followers</div>
+                                </div>
+                                <div class="mk-stat">
+                                    <div class="mk-stat-icon" style="color:#FF0000;">▶</div>
+                                    <div class="mk-stat-val">256.2K</div>
+                                    <div class="mk-stat-label">YT Subscribers</div>
+                                </div>
+                                <div class="mk-stat">
+                                    <div class="mk-stat-icon" style="color:#6C63FF;">📈</div>
+                                    <div class="mk-stat-val">4.2%</div>
+                                    <div class="mk-stat-label">Engagement</div>
+                                </div>
+                                <div class="mk-stat">
+                                    <div class="mk-stat-icon" style="color:#6C63FF;">👥</div>
+                                    <div class="mk-stat-val">82%</div>
+                                    <div class="mk-stat-label">Audience 18-34</div>
+                                </div>
+                            </div>
+                            <div class="mk-bottom">
+                                <div class="mk-audience">
+                                    <div class="mk-section-title">Top Audience</div>
+                                    <div class="mk-bar-row"><span>USA</span>
+                                        <div class="mk-bar">
+                                            <div class="mk-bar-fill" style="width:45%;"></div>
+                                        </div><span>45%</span>
+                                    </div>
+                                    <div class="mk-bar-row"><span>UK</span>
+                                        <div class="mk-bar">
+                                            <div class="mk-bar-fill" style="width:22%;"></div>
+                                        </div><span>22%</span>
+                                    </div>
+                                    <div class="mk-bar-row"><span>Germany</span>
+                                        <div class="mk-bar">
+                                            <div class="mk-bar-fill" style="width:15%;"></div>
+                                        </div><span>15%</span>
+                                    </div>
+                                </div>
+                                <div class="mk-partnerships">
+                                    <div class="mk-section-title">Past Partnerships</div>
+                                    <div class="mk-partner-grid">
+                                        <div class="mk-partner"></div>
+                                        <div class="mk-partner"></div>
+                                        <div class="mk-partner"></div>
+                                        <div class="mk-partner"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2: Analytics Dashboard -->
+                    <div class="carousel-slide" data-index="1">
+                        <div class="an-card">
+                            <div class="an-nav">
+                                <span class="an-nav-item active">Summary</span>
+                                <span class="an-nav-item">Instagram</span>
+                                <span class="an-nav-item">TikTok</span>
+                                <span class="an-nav-item">YouTube</span>
+                            </div>
+                            <div class="an-header">
+                                <div class="an-title">📊 Growth Analytics</div>
+                                <div class="an-period">Last 30 Days</div>
+                            </div>
+                            <div class="an-metrics">
+                                <div class="an-metric">
+                                    <div class="an-metric-label">Total Reach <span class="an-up">↗ +12.5%</span></div>
+                                    <div class="an-metric-val">4.8M</div>
+                                </div>
+                                <div class="an-metric">
+                                    <div class="an-metric-label">Engagement <span class="an-up">↗ +0.8%</span></div>
+                                    <div class="an-metric-val">5.2%</div>
+                                </div>
+                                <div class="an-metric">
+                                    <div class="an-metric-label">Avg. Views <span class="an-down">↘ -2.1%</span></div>
+                                    <div class="an-metric-val">842K</div>
+                                </div>
+                                <div class="an-metric">
+                                    <div class="an-metric-label">New Followers <span class="an-up">↗ +18.2%</span></div>
+                                    <div class="an-metric-val">12.4K</div>
+                                </div>
+                            </div>
+                            <div class="an-chart-label">Cross-Platform Performance</div>
+                            <div class="an-chart">
+                                <div class="an-chart-group">
+                                    <div class="an-bar" style="height:35%;background:#1a1a1a;"></div>
+                                    <div class="an-bar" style="height:20%;background:#6BCBB8;"></div><span>Mon</span>
+                                </div>
+                                <div class="an-chart-group">
+                                    <div class="an-bar" style="height:45%;background:#1a1a1a;"></div>
+                                    <div class="an-bar" style="height:10%;background:#6BCBB8;"></div><span>Tue</span>
+                                </div>
+                                <div class="an-chart-group">
+                                    <div class="an-bar" style="height:15%;background:#1a1a1a;"></div>
+                                    <div class="an-bar" style="height:85%;background:#6BCBB8;"></div><span>Wed</span>
+                                </div>
+                                <div class="an-chart-group">
+                                    <div class="an-bar" style="height:40%;background:#1a1a1a;"></div>
+                                    <div class="an-bar" style="height:55%;background:#6BCBB8;"></div><span>Thu</span>
+                                </div>
+                                <div class="an-chart-group">
+                                    <div class="an-bar" style="height:15%;background:#1a1a1a;"></div>
+                                    <div class="an-bar" style="height:45%;background:#6BCBB8;"></div><span>Fri</span>
+                                </div>
+                                <div class="an-chart-group">
+                                    <div class="an-bar" style="height:25%;background:#1a1a1a;"></div>
+                                    <div class="an-bar" style="height:35%;background:#6BCBB8;"></div><span>Sat</span>
+                                </div>
+                                <div class="an-chart-group">
+                                    <div class="an-bar" style="height:30%;background:#1a1a1a;"></div>
+                                    <div class="an-bar" style="height:95%;background:#6BCBB8;"></div><span>Sun</span>
+                                </div>
+                            </div>
+                            <div class="an-top-content">
+                                <div class="an-tc-title">🏆 Top Performing Content</div>
+                                <div class="an-tc-grid">
+                                    <div class="an-tc-item">
+                                        <div class="an-tc-thumb" style="background:#E8E0F0;"></div>
+                                        <div class="an-tc-meta">▶ 1.2M · ♡ 8.4%</div>
+                                        <div class="an-tc-name">10 Productivity Hacks</div>
+                                    </div>
+                                    <div class="an-tc-item">
+                                        <div class="an-tc-thumb" style="background:#D8D0E8;"></div>
+                                        <div class="an-tc-meta">▶ 2.8M · ♡ 12.1%</div>
+                                        <div class="an-tc-name">Morning Routine</div>
+                                    </div>
+                                    <div class="an-tc-item">
+                                        <div class="an-tc-thumb" style="background:#E0E8F0;"></div>
+                                        <div class="an-tc-meta">▶ 450K · ♡ 6.2%</div>
+                                        <div class="an-tc-name">Desk Setup Tour</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dots -->
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" data-slide="0"></span>
+                    <span class="carousel-dot" data-slide="1"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- STORY TRANSITION -->
     <section class="story-beat reveal">
-        <h2>Then I realized — I didn't need <em>more tools</em>. I needed the <em>right one.</em></h2>
-        <p>One platform. One price. One place where your content, your products, your analytics, and your brand deals
-            all live together.</p>
+        <h2>Looplinq is something that <em>actually</em> works.</h2>
+        <p>A link-in-bio that's <em>rich and beautiful</em>. A platform that's <em>affordable</em>. And a creator hub
+            that helps me <em>grow faster</em> and <em>monetize better</em>.</p>
+        <div class="monitor-frame">
+            <div class="monitor-bezel">
+                <div class="monitor-dots"><span></span><span></span><span></span></div>
+                <div class="monitor-screen">
+                    <div class="web-mockup">
+                        <div class="wm-sidebar">
+                            <div class="wm-avatar"></div>
+                            <div class="wm-name">Helen M</div>
+                            <div class="wm-bio">Norway Soft Adventurer</div>
+                            <div class="wm-location">Bergen, Norway</div>
+                            <div class="wm-socials">
+                                <span>𝕏</span>
+                                <span>f</span>
+                                <span>▶</span>
+                                <span>in</span>
+                            </div>
+                        </div>
+                        <div class="wm-content">
+                            <div class="wm-top-row">
+                                <div class="wm-card">
+                                    <div class="wm-card-text">
+                                        <div class="wm-card-domain">✦ www.moocommunity.com</div>
+                                        <div class="wm-card-title">Moo Retreats | Community</div>
+                                        <div class="wm-card-desc">Join Moo Retreats to be the first to receive
+                                            invitations to our retreats in Norway.</div>
+                                    </div>
+                                    <div class="wm-card-img" style="background: #F8C8D8;"></div>
+                                </div>
+                                <div class="wm-card">
+                                    <div class="wm-card-text">
+                                        <div class="wm-card-domain">🧶 mooknit.com</div>
+                                        <div class="wm-card-title">Moo Knit</div>
+                                        <div class="wm-card-desc">Thoughtful knitwear made in Norway. Inspired by
+                                            nature, color and timeless design.</div>
+                                    </div>
+                                    <div class="wm-card-img" style="background: #B8E6D0;"></div>
+                                </div>
+                            </div>
+                            <div class="wm-feature-card">
+                                <div class="wm-feature-text">
+                                    <div class="wm-card-domain">🏔️ helenemoo.no</div>
+                                    <div class="wm-card-title">Ultimate Norway *Winter* Guide</div>
+                                    <div class="wm-card-desc">Everything you need to get the best winter experiences in
+                                        Norway! An interactive map with beautiful destinations, activities, saunas,
+                                        cabins, skiing, bakeries etc.</div>
+                                </div>
+                                <div class="wm-feature-img"
+                                    style="background: linear-gradient(135deg, #E8A0C0, #C06090);"></div>
+                            </div>
+                            <div class="wm-bottom-row">
+                                <div class="wm-social-card" style="background: #FDE8E8; color: #CC0000;">
+                                    <div class="wm-sc-icon">▶</div>
+                                    <div>
+                                        <div class="wm-sc-name">YouTube</div>
+                                        <div class="wm-sc-handle">@helenemoo</div>
+                                    </div>
+                                </div>
+                                <div class="wm-social-card" style="background: #E8EEFF; color: #1877F2;">
+                                    <div class="wm-sc-icon">f</div>
+                                    <div>
+                                        <div class="wm-sc-name">Facebook</div>
+                                        <div class="wm-sc-handle">user</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="monitor-stand"></div>
+            <div class="monitor-base"></div>
+        </div>
     </section>
 
     <!-- PRICING -->
     <section class="pricing-simple reveal" id="pricing">
         <h2>Simple pricing. No surprises.</h2>
         <p class="pricing-sub">Everything you need to run your creator business.</p>
+        <!-- Pricing toggle -->
+        <div class="pricing-toggle" id="pricingToggle">
+            <span class="toggle-label active" data-plan="monthly">Monthly</span>
+            <div class="toggle-switch" id="toggleSwitch">
+                <div class="toggle-knob"></div>
+            </div>
+            <span class="toggle-label" data-plan="annual">Annual <span class="toggle-save">Save 20%</span></span>
+        </div>
         <div class="price-card">
             <div class="price-amount">
                 <span class="dollar">$</span>
-                <span class="number">14</span>
-                <span class="period">/mo</span>
+                <span class="number" id="priceNumber">14</span>
+                <span class="period" id="pricePeriod">/mo</span>
             </div>
-            <div class="price-tagline">Free for 90 days. Keep your page forever.</div>
+            <div class="price-annual-note" id="annualNote"></div>
+            <div class="price-tagline">Free for 45 days. Keep and run your page <em>forever</em>.</div>
             <ul class="price-features">
                 <li>Custom link-in-bio with premium design</li>
                 <li>Creator analytics dashboard</li>
@@ -1987,7 +3308,7 @@
                 <li>Payment processing built in</li>
                 <li>Courses, memberships &amp; community</li>
             </ul>
-            <button class="btn-primary">Start Free for 90 Days</button>
+            <button class="btn-primary">Start Free for 45 Days</button>
         </div>
     </section>
 
@@ -2056,6 +3377,57 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        // Carousel
+        document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+            const tabs = wrapper.querySelectorAll('.carousel-tab');
+            const dots = wrapper.querySelectorAll('.carousel-dot');
+            const slides = wrapper.querySelectorAll('.carousel-slide');
+
+            function goTo(index) {
+                slides.forEach(s => s.classList.remove('active'));
+                tabs.forEach(t => t.classList.remove('active'));
+                dots.forEach(d => d.classList.remove('active'));
+                slides[index].classList.add('active');
+                tabs[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+
+            tabs.forEach(tab => tab.addEventListener('click', () => goTo(+tab.dataset.slide)));
+            dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.slide)));
+        });
+
+        // Pricing toggle
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        const toggleLabels = document.querySelectorAll('.toggle-label');
+        const priceNumber = document.getElementById('priceNumber');
+        const pricePeriod = document.getElementById('pricePeriod');
+        const annualNote = document.getElementById('annualNote');
+        let isAnnual = false;
+
+        function updatePricing() {
+            if (isAnnual) {
+                toggleSwitch.classList.add('annual');
+                priceNumber.textContent = '11';
+                pricePeriod.textContent = '/mo';
+                annualNote.textContent = 'Billed $132/year';
+                toggleLabels[0].classList.remove('active');
+                toggleLabels[1].classList.add('active');
+            } else {
+                toggleSwitch.classList.remove('annual');
+                priceNumber.textContent = '14';
+                pricePeriod.textContent = '/mo';
+                annualNote.textContent = '';
+                toggleLabels[1].classList.remove('active');
+                toggleLabels[0].classList.add('active');
+            }
+        }
+
+        toggleSwitch.addEventListener('click', () => { isAnnual = !isAnnual; updatePricing(); });
+        toggleLabels.forEach(label => label.addEventListener('click', () => {
+            isAnnual = label.dataset.plan === 'annual';
+            updatePricing();
+        }));
     </script>
 
 </body>
