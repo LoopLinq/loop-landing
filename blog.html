@@ -233,6 +233,14 @@
             color: #5F2606;
         }
 
+        .nav-links a.nav-active {
+            color: #5F2606;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #FF5D02;
+        }
+
         .nav-cta {
             background: #FF5D02;
             color: white;
@@ -859,7 +867,8 @@
         <div class="nav-right">
             <button class="nav-cta">Claim Link</button>
             <ul class="nav-links">
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html" class="nav-active">Blog</a></li>
+                <li><a href="index.html#faq">FAQs</a></li>
                 <li><a href="index.html#pricing">Pricing</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -868,7 +877,8 @@
         </div>
     </nav>
     <div class="nav-dropdown" id="navDropdown">
-        <a href="blog.html">Blog</a>
+        <a href="blog.html" class="nav-active">Blog</a>
+        <a href="index.html#faq">FAQs</a>
         <a href="index.html#pricing">Pricing</a>
         <button class="dropdown-cta">Claim Link</button>
     </div>

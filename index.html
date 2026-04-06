@@ -177,6 +177,17 @@
             color: var(--walnut);
         }
 
+        .nav-links a.nav-active {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 2px;
+            text-decoration-color: var(--orange);
+        }
+
+        nav.scrolled .nav-links a.nav-active {
+            color: var(--walnut);
+        }
+
         .nav-cta {
             background: white;
             color: var(--orange);
@@ -4188,6 +4199,24 @@
                 hamburger.classList.remove('open');
                 navDropdown.classList.remove('open');
             });
+        });
+
+        // Active nav link on scroll
+        const navSections = [
+            { id: 'pricing', selector: 'a[href="#pricing"]' },
+            { id: 'faq', selector: 'a[href="#faq"]' }
+        ];
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const link = document.querySelector(`.nav-links ${navSections.find(s => s.id === entry.target.id)?.selector}`);
+                const dropLink = document.querySelector(`.nav-dropdown ${navSections.find(s => s.id === entry.target.id)?.selector}`);
+                if (link) link.classList.toggle('nav-active', entry.isIntersecting);
+                if (dropLink) dropLink.classList.toggle('nav-active', entry.isIntersecting);
+            });
+        }, { threshold: 0.2 });
+        navSections.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (el) sectionObserver.observe(el);
         });
 
         // FAQ accordion
