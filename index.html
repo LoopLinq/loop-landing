@@ -4322,6 +4322,37 @@
             isAnnual = label.dataset.plan === 'annual';
             updatePricing();
         }));
+
+        // CTA buttons → app signup
+        const APP_URL = 'https://app.looplinq.com';
+
+        document.querySelector('.nav-cta').addEventListener('click', () => {
+            window.location.href = APP_URL + '/auth/login';
+        });
+        document.querySelector('.dropdown-cta').addEventListener('click', () => {
+            window.location.href = APP_URL + '/auth/login';
+        });
+        document.querySelector('.hero .btn-primary').addEventListener('click', () => {
+            window.location.href = APP_URL + '/auth/login';
+        });
+        document.querySelector('.hero .btn-ghost').addEventListener('click', () => {
+            document.querySelector('#pricing').scrollIntoView({ behavior: 'smooth' });
+        });
+        document.querySelector('.final-cta .btn-primary').addEventListener('click', () => {
+            const input = document.querySelector('.claim-input-group input');
+            const username = input.value.trim().replace(/^looplinq\.com\//, '');
+            const url = username
+                ? APP_URL + '/auth/login?username=' + encodeURIComponent(username)
+                : APP_URL + '/auth/login';
+            window.location.href = url;
+        });
+
+        // Pricing card CTA
+        document.querySelectorAll('.price-card .btn-primary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                window.location.href = APP_URL + '/auth/login';
+            });
+        });
     </script>
 
 </body>
